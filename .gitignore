@@ -1,0 +1,13 @@
+# .gitignore
+
+# Environment variables
+.env
+
+# Flask instance folder
+/instance/
+
+# Python virtual environment
+/env/
+
+# Compiled Python files
+/__pycache__/

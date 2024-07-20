@@ -1,0 +1,56 @@
+{% extends 'base.html' %} {% block head %}
+<title>{{ station_name }}</title>
+{% endblock %} {% block body %}
+<button class="button" onclick="goBack()">Back to Home</button> <br />
+<div id="station-name" style="display: none">{{ station_name }}</div>
+
+<div id="station-graphic">
+  <div id="map-rectangle" class="rectangle">
+    <div class="circle"></div>
+  </div>
+  <h1 id="station-sign">{{ station_name }}</h1>
+</div>
+<br />
+<div id="selector-container">
+  <label class="select-label" for="line">Select Line:</label>
+  <select
+    id="line"
+    class="platform-select"
+    name="line"
+    onchange="populatePlatforms()"
+  >
+    <option value="" selected disabled>Select a line</option>
+    {% set lines = station_group | map(attribute='line') | unique %} {% for line
+    in lines %}
+    <option value="{{ line }}" class="platform-option">{{ line }}</option>
+    {% endfor %}
+  </select>
+  <br />
+  <label
+    class="select-label"
+    for="platform"
+    style="display: none"
+    id="platformLabel"
+    >Select Platform:</label
+  >
+  <select
+    id="platform"
+    class="platform-select"
+    name="platform"
+    style="display: none"
+    onchange="buttonAppear()"
+  >
+    <option value="" selected disabled>Select a platform</option>
+  </select>
+  <button
+    type="submit"
+    class="button"
+    id="submitButton"
+    style="display: none"
+    onclick="getPredictions()"
+  >
+    Submit
+  </button>
+</div>
+<script src="../static/scripts/station.js"></script>
+{% endblock %}

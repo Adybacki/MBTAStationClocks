@@ -1,0 +1,183 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  padding: 20px;
+}
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+#searchInput {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+}
+
+#searchResults {
+  margin: auto;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+ul#searchResults {
+  list-style-type: none;
+  padding: 0;
+}
+ul#searchResults li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background-color: #2f2f2f;
+  color: white;
+  border-radius: 10px;
+}
+ul#searchResults li:hover {
+  background-color: #535353;
+}
+ul#searchResults li:last-child {
+  border-bottom: none;
+}
+
+footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  color: #797979;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rectangle {
+  width: 30px;
+  height: 90px;
+  position: relative;
+  margin: 5px;
+  background-color: #2f2f2f
+}
+
+#station-graphic {
+  display: flex; 
+  margin: 5px; 
+  justify-content: center
+}
+
+#station-sign {
+  padding: 10px;
+  text-align: center;
+  margin: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.platform-select {
+  display: flex;
+}
+
+#selector-container {
+  margin: auto; 
+  justify-content: center; 
+  text-align: center
+}
+
+.select-label {
+  text-align: center; 
+  font-weight: bold
+}
+
+@font-face {
+  font-family: 'Repetition-Scrolling';
+  src: url(repet___.ttf);
+  font-weight: normal;
+}
+
+.arrivals {
+  display: block;
+  font-size: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(35, 35, 35);
+    border: 30px solid black;
+    width: 950px;
+    margin: auto;
+}
+
+.arrival-info {
+  font-family: 'Repetition-Scrolling';
+  color: rgb(247, 131, 42);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.time {
+  flex: 1;
+  text-align: right;
+  width: 100px;
+  margin: 2px;
+  
+}
+.headsign {
+  align-items: left;
+  margin: 2px;
+  flex: 1 1 auto;
+}
+
+#time-0, #time-1 {
+  flex: 0 0 300px;
+}
+
+#placeholder-time, #current-time {
+  flex: 0 0 225px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2f2f2f;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  font-size: 16px;
+  font-weight: bold;
+  margin: auto;
+  &:hover {
+    background-color: #505050;
+  }
+}
+
+.platform-select {
+  margin: auto;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 8px;
+  justify-content: center;
+  text-align: center;
+}
+
+.platform-option {
+  padding: 2px;
+  text-align: center;
+}

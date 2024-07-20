@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block head %}
+<title>{{ station_name }} Predictions</title>
+{% endblock %} {% block body %}
+<div style="text-align: center">
+  <div id="station-name" style="display: none">{{ station_name }}</div>
+  <h1 id="station-nameplate" style="color: white; padding: 10px">
+    {{ station_name | upper }}
+  </h1>
+  <label id="line" style="display: none">{{ line }}</label>
+  <h2 id="platform">TO {{ platform | upper}}</h2>
+  <label id="station-id" style="display: none">{{ station_id }}</label>
+</div>
+<div id="train-arrivals" class="arrivals">
+  <div class="arrival-info">
+    <span id="headsign-0" class="headsign"></span>
+    <span id="time-0" class="time"></span>
+    <span id="current-time" class="time"></span>
+  </div>
+  <div class="arrival-info">
+    <span id="headsign-1" class="headsign"></span>
+    <span id="time-1" class="time"></span>
+    <span id="placeholder-time" class="time" style="height: 64px"></span>
+  </div>
+</div>
+<script src="../static/scripts/prediction.js"></script>
+{% endblock %}
