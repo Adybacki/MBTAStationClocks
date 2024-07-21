@@ -1,6 +1,5 @@
-  //TODO: Fix end/terminus stations, being very funky with 20+ minutes not updating correctly
-  //Extra: scrollable status updates -> switch word by word -> fix intervals, make current time always in est instead of using user time
-  let intervalId = [null, null]; // Initialize intervalId outside of fetchTrainArrivals to keep track of the interval
+  //make current time always in est instead of using user time
+  let intervalId = [null, null];
   let prevStatus = [null, null];
 
   async function fetchTrainArrivals() {
@@ -96,19 +95,28 @@
           }
           const vehicle_status = vehicle[0].attributes.current_status;
           const vehicle_stop = vehicle[0].relationships.stop.data.id;
-          /*  if (status !== null) {
+          if (status === null && intervalId[count] !== null) {
+            clearInterval(intervalId[count]);
+          }
+          if (status !== null) {
+            if (status === prevStatus[count]) {
+              count++;
+              continue;
+            }
+            else {
            const chunks = splitStringIntoChunks(status);
 
             let i = 0;
             // Clear any existing interval before setting a new one
-            clearInterval(intervalId[count]); // Stop any existing interval
+            clearInterval(intervalId[count]);
             let secondsElapsed = 0;
             intervalId[count] = setInterval(() => {
               timeSpan.textContent = chunks[i];
               i = (i + 1) % chunks.length;
               secondsElapsed += 2;
             }, 2000);
-          } else */ if (
+            }
+          } else if (
             secondsUntilArrival <= 90 &&
             vehicle_status === "STOPPED_AT" &&
             vehicle_stop === stationId
@@ -236,5 +244,5 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     fetchTrainArrivals();
-    setInterval(fetchTrainArrivals, 15000); //edit to change page refresh rate
+    setInterval(fetchTrainArrivals, 30000); //edit to change page refresh rate
   });
