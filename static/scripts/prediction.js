@@ -1,6 +1,8 @@
   //make current time always in est instead of using user time
   let intervalId = [null, null];
   let prevStatus = [null, null];
+  let prevTripId = [null, null];
+  let prevHeadsign = [null, null];
 
   async function fetchTrainArrivals() {
     const lineElement = document.getElementById("line");
@@ -52,9 +54,17 @@
         const timeSpan = document.getElementById(`time-${count}`);
 
         //get headsign
+        let headsign;
         const tripId = arrival.relationships.trip.data.id;
         const headsignSpan = document.getElementById(`headsign-${count}`);
-        const headsign = await fetchHeadsign(tripId);
+        if (tripId !== prevTripId[count]) {
+          headsign = await fetchHeadsign(tripId);
+          prevHeadsign[count] = headsign;
+          prevTripId[count] = tripId;
+        }
+        else {
+          headsign = prevHeadsign[count];
+        }
 
         //if the train is signed for the current station, skip the entry
         if (headsign === document.getElementById("station-name").textContent)
