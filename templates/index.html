@@ -1,11 +1,13 @@
 {% extends 'base.html' %} {% block head %}
 <title>MBTA Station Clocks</title>
 {% endblock %} {% block body %}
-<div style="text-align: center; background-color: #2f2f2f; color: white">
-  <h1 style="padding: 10px">MBTA Station Countdown Clocks</h1>
+<div class="arrivals" style="text-align: center; width: 700px">
+  <label class="arrival-info">MBTA Station Countdown Clocks</label>
 </div>
-<label>MBTA Website</label>
-<label>T Map</label>
+<div id="links-box">
+  <a class="links" href="https://www.mbta.com/" target="_blank">MBTA Website</a>
+  <a class="links" href="https://www.mbta.com/maps" target="_blank">T Map</a>
+</div>
 <div style="text-align: center">
   <input
     type="text"
