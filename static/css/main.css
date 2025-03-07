@@ -120,35 +120,36 @@ footer {
 /*prediction*/
 @font-face {
   font-family: 'Repetition-Scrolling';
-  src: url(repet___.ttf);
+  src: url(MBTARLS.TTF);
   font-weight: normal;
 }
 
 .arrivals {
   display: block;
-  font-size: 60px;
+  font-size: 70px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1px;
     background-color: rgb(35, 35, 35);
     border: 30px solid black;
-    width: 950px;
+    width: 900px;
     margin: auto;
 }
 
 .arrival-info {
   font-family: 'Repetition-Scrolling';
-  color: rgb(247, 131, 42);
+  color: rgb(250, 144, 62);
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .time {
   flex: 1;
   text-align: right;
   width: 100px;
-  margin: 2px;
+  margin: 1px;
   
 }
 .headsign {

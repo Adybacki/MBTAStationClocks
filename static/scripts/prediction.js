@@ -188,7 +188,7 @@
     hours = hours % 12;
     hours = hours ? hours : 12;
     minutes = minutes < 10 ? "0" + minutes : minutes;
-    let strTime = hours + ":" + minutes;
+    let strTime = hours + ": " + minutes;
     currentTimeSpan.textContent = strTime;
 
     //second line placeholder for the current time to maintain alignment
